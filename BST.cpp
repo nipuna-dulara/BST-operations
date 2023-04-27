@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// 210467A
 struct node
 {
     int key;
@@ -70,13 +70,13 @@ struct node *deleteNode(struct node *root, int key)
             delete (root);
             return temp;
         }
-        node *temp = root;
+        node *temp = root->left;
         while (temp->right != nullptr)
         {
-            temp = temp->left;
+            temp = temp->right;
         }
         root->key = temp->key;
-        root->right = deleteNode(root->right, temp->key);
+        root->right = deleteNode(root->left, temp->key);
     }
     return root;
 }
